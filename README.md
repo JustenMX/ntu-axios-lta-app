@@ -13,10 +13,16 @@ Research and consume public APIs listed at [GovData](https://data.gov.sg/).
 - Attempt consuming the API with React and Axios.
 - Set up a simple GET request, query the API for data and display it on a React app
 
-# Currently Working on
+### Additional Implementations
 
-- manipulate the lats data passe dby the API
-- coonvert the timestamp string passed to readable
+- manipulate the lats data passed by the API
+- convert the timestamp string passed to readable
+
+### Currently Working on
+
+- CRUD applications in Watch List component
+- Fix component re-rendering and empty div appearing on page (bug)
+- Validation of UX behaviors
 
 ---
 
