@@ -34,6 +34,9 @@ function NavHeader(props) {
                 <Button
                   className="inline-block rounded border border-zinc-950 bg-zinc-950 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-slate-50 focus:outline-none focus:ring active:text-zinc-900 m-2"
                   buttonLabel="Watch List"
+                  buttonFunc={() => {
+                    navigate("watchlist");
+                  }}
                 />
               </nav>
             </div>

@@ -5,13 +5,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Components Import
 import HomePage from "./pages/HomePage";
 import TrafficPage from "./pages/TrafficPage";
-import ErrorPage from "./components/ErrorPage";
+import ErrorPage from "./pages/ErrorPage";
+import WatchListPage from "./pages/WatchListPage";
 // Data Import
 import govAPI from "./api/govAPI";
 
 function App() {
   // State Managmenet
-  const [trafficData, setTrafficData] = useState({});
+  const [trafficData, setTrafficData] = useState([{}]);
+  const [watchList, setWatchList] = useState([{}]);
+
   // GET API
   const getTrafficImages = async () => {
     try {
@@ -23,9 +26,25 @@ function App() {
     }
   };
 
+  // ADD Watch List
+  const handlerAddWatchList = (item) => {
+    //validation
+    watchList.map((watchItem) => {
+      if (item.camera_id === watchItem.camera_id) {
+        alert("🚫 You already have this in your Watch List");
+        return;
+      } else {
+        const newList = [...watchList, item];
+        setWatchList(newList);
+      }
+    });
+  };
+  console.log(watchList);
+
   useEffect(() => {
     getTrafficImages();
   }, []);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -35,9 +54,19 @@ function App() {
         >
           <Route
             path="traffic"
-            element={<TrafficPage trafficData={trafficData} />}
+            element={
+              <TrafficPage
+                trafficData={trafficData}
+                handlerAddWatchList={handlerAddWatchList}
+              />
+            }
+          />
+          <Route
+            path="watchlist"
+            element={<WatchListPage watchList={watchList} />}
           />
         </Route>
+
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
