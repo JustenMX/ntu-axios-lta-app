@@ -16,6 +16,7 @@ function TrafficImages(props) {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-8">
           {trafficData.items?.[0]?.cameras?.map((item) => {
             const formattedDate = formatDateTime(item.timestamp);
+
             return (
               <div
                 key={item.camera_id}
@@ -50,7 +51,9 @@ function TrafficImages(props) {
                 <Button
                   className="inline-block rounded border border-zinc-950 bg-zinc-950 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-zinc-950 focus:outline-none focus:ring active:text-zinc-900 mt-5"
                   buttonLabel="Add to Watch List"
-                  buttonFunc={() => handlerAddWatchList(item)}
+                  buttonFunc={() => {
+                    handlerAddWatchList(item);
+                  }}
                 />
               </div>
             );

@@ -17,12 +17,15 @@ Research and consume public APIs listed at [GovData](https://data.gov.sg/).
 
 - manipulate the lats data passed by the API
 - convert the timestamp string passed to readable
-
-### Currently Working on
-
 - CRUD applications in Watch List component
 - Fix component re-rendering and empty div appearing on page (bug)
 - Validation of UX behaviors
+
+### Currently Working on
+
+- toast alert prompts and replace the current alert prompt implementations
+- further UI/UX validations
+- When add to WatchList, watchList to call back the API and display the filtered live updates based on the watchlist state updates
 
 ---
 

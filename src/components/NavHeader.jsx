@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 function NavHeader(props) {
-  const { getTrafficImages } = props;
+  const { getTrafficImages, headerCaption, setHeaderCaption } = props;
   const navigate = useNavigate();
   return (
     <div>
@@ -14,10 +14,7 @@ function NavHeader(props) {
                 Welcome Back, Justen!
               </h1>
 
-              <p className="mt-1.5 text-sm text-slate-50">
-                Images of live traffic conditions along expressways and
-                Woodlands & Tuas Checkpoints
-              </p>
+              <p className="mt-1.5 text-sm text-slate-50">{headerCaption}</p>
             </div>
 
             <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
@@ -27,6 +24,8 @@ function NavHeader(props) {
                   buttonLabel="View Traffic"
                   buttonFunc={() => {
                     getTrafficImages();
+                    setHeaderCaption(`Images of live traffic conditions along expressways and
+                Woodlands & Tuas Checkpoints`);
                     navigate("traffic");
                   }}
                 />
@@ -35,6 +34,9 @@ function NavHeader(props) {
                   className="inline-block rounded border border-zinc-950 bg-zinc-950 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-slate-50 focus:outline-none focus:ring active:text-zinc-900 m-2"
                   buttonLabel="Watch List"
                   buttonFunc={() => {
+                    setHeaderCaption(
+                      `All your selected live traffic conditions in one place `
+                    );
                     navigate("watchlist");
                   }}
                 />

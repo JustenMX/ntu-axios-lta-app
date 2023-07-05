@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Button from "../components/Button";
 function WatchListPage(props) {
-  const { watchList } = props;
+  const { watchList, handlerDeleteWatchList } = props;
   //
   console.log(watchList);
   return (
@@ -38,6 +38,7 @@ function WatchListPage(props) {
                 <Button
                   className="inline-block rounded border border-zinc-950 bg-red-700 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-zinc-950 focus:outline-none focus:ring active:text-zinc-900 mt-5"
                   buttonLabel="Remove"
+                  buttonFunc={() => handlerDeleteWatchList(watchItem)}
                 />
               </div>
             );

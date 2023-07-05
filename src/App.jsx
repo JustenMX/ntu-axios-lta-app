@@ -12,9 +12,11 @@ import govAPI from "./api/govAPI";
 
 function App() {
   // State Managmenet
-  const [trafficData, setTrafficData] = useState([{}]);
-  const [watchList, setWatchList] = useState([{}]);
-
+  const [headerCaption, setHeaderCaption] = useState(
+    "Nice to see you back again!"
+  );
+  const [trafficData, setTrafficData] = useState([]);
+  const [watchList, setWatchList] = useState([]);
   // GET API
   const getTrafficImages = async () => {
     try {
@@ -28,18 +30,29 @@ function App() {
 
   // ADD Watch List
   const handlerAddWatchList = (item) => {
-    //validation
-    watchList.map((watchItem) => {
-      if (item.camera_id === watchItem.camera_id) {
-        alert("🚫 You already have this in your Watch List");
-        return;
-      } else {
-        const newList = [...watchList, item];
-        setWatchList(newList);
-      }
-    });
+    // Check if the item with the same camera_id already exists in the watchList
+    const isItemInWatchList = watchList.some(
+      (watchItem) => watchItem.camera_id === item.camera_id
+    );
+
+    if (isItemInWatchList) {
+      alert("You already have this camera in the watch list");
+    } else {
+      // Add the item to the watchList
+      setWatchList((prevWatchList) => [...prevWatchList, item]);
+      alert("Add Successful!");
+    }
   };
   console.log(watchList);
+
+  // DELETE Watch List
+  const handlerDeleteWatchList = (watchItem) => {
+    const newList = watchList.filter(
+      (item) => item.camera_id !== watchItem.camera_id
+    );
+    setWatchList(newList);
+    alert("Delete Successful");
+  };
 
   useEffect(() => {
     getTrafficImages();
@@ -50,7 +63,13 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage getTrafficImages={getTrafficImages} />}
+          element={
+            <HomePage
+              getTrafficImages={getTrafficImages}
+              headerCaption={headerCaption}
+              setHeaderCaption={setHeaderCaption}
+            />
+          }
         >
           <Route
             path="traffic"
@@ -63,7 +82,12 @@ function App() {
           />
           <Route
             path="watchlist"
-            element={<WatchListPage watchList={watchList} />}
+            element={
+              <WatchListPage
+                watchList={watchList}
+                handlerDeleteWatchList={handlerDeleteWatchList}
+              />
+            }
           />
         </Route>
 
