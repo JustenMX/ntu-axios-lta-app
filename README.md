@@ -26,6 +26,7 @@ Research and consume public APIs listed at [GovData](https://data.gov.sg/).
 - toast alert prompts and replace the current alert prompt implementations
 - further UI/UX validations
 - When add to WatchList, watchList to call back the API and display the filtered live updates based on the watchlist state updates
+- Traffic Updates to display the exact location in street name - as of now its a link to google map using lats passed in the URL
 
 ---
 
