@@ -32,7 +32,7 @@ Research and consume public APIs listed at [GovData](https://data.gov.sg/).
 
 ### Credits
 
-[Land Transport Authority - Traffic Images]("https://beta.data.gov.sg/datasets/354/view")
+[Land Transport Authority - Traffic Images](https://beta.data.gov.sg/datasets/354/view)
 
 <img src="https://d33wubrfki0l68.cloudfront.net/17db5b93c652e8401162c9c49bd337dad3433f74/6780e/images/ogp-logo-spacing.png"  width="20%" height="20%">
 <!-- 
