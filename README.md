@@ -23,9 +23,9 @@ Research and consume public APIs listed at [GovData](https://data.gov.sg/).
 
 - [x] Fix component re-rendering and empty div appearing on page (bug)
 - [x] Validation of UX behaviors
-- [] toast alert prompts and replace the current alert prompt implementations
-- [] When add to WatchList, watchList to call back the API and display the filtered live updates based on the watchlist state updates
-- [] Traffic Updates to display the exact location in street name - as of now its a link to google map using lats passed in the URL
+- [ ] toast alert prompts and replace the current alert prompt implementations
+- [ ] When add to WatchList, watchList to call back the API and display the filtered live updates based on the watchlist state updates
+- [ ] Traffic Updates to display the exact location in street name - as of now its a link to google map using lats passed in the URL
 
 ---
 
