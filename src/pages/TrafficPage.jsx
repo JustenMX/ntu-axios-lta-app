@@ -2,12 +2,13 @@
 import TrafficImages from "../components/TrafficImages";
 
 function TrafficPage(props) {
-  const { trafficData, handlerAddWatchList } = props;
+  const { trafficData, handlerAddWatchList, ToastContainer } = props;
   return (
     <div>
       <TrafficImages
         trafficData={trafficData}
         handlerAddWatchList={handlerAddWatchList}
+        ToastContainer={ToastContainer}
       />
     </div>
   );

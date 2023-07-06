@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
 import Button from "../components/Button";
 function WatchListPage(props) {
-  const { watchList, handlerDeleteWatchList } = props;
+  const { watchList, handlerDeleteWatchList, ToastContainer } = props;
   //
   console.log(watchList);
   return (
     <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
       <div className="flex justify-center items-end gap-4 mb-6">
+        <div className="toast-container">
+          <ToastContainer />
+        </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-8">
           {watchList.map((watchItem) => {
             return (

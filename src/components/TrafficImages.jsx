@@ -8,11 +8,14 @@ function formatDateTime(dateTimeString) {
 }
 
 function TrafficImages(props) {
-  const { trafficData, handlerAddWatchList } = props;
+  const { trafficData, handlerAddWatchList, ToastContainer } = props;
 
   return (
     <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
       <div className="flex justify-center items-end gap-4 mb-6">
+        <div className="toast-container">
+          <ToastContainer />
+        </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-8">
           {trafficData.items?.[0]?.cameras?.map((item) => {
             const formattedDate = formatDateTime(item.timestamp);

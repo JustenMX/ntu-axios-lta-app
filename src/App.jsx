@@ -1,7 +1,10 @@
+// css
 import "./index.css";
+import "react-toastify/dist/ReactToastify.css";
 // Dependecies
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 // Components Import
 import HomePage from "./pages/HomePage";
 import TrafficPage from "./pages/TrafficPage";
@@ -17,6 +20,7 @@ function App() {
   );
   const [trafficData, setTrafficData] = useState([]);
   const [watchList, setWatchList] = useState([]);
+
   // GET API
   const getTrafficImages = async () => {
     try {
@@ -24,7 +28,7 @@ function App() {
       console.log(response.data);
       setTrafficData(response.data);
     } catch (error) {
-      console.log(error.message);
+      toast.error(error.message);
     }
   };
 
@@ -36,11 +40,11 @@ function App() {
     );
 
     if (isItemInWatchList) {
-      alert("You already have this camera in the watch list");
+      toast.error("You already have this camera in the watch list");
     } else {
       // Add the item to the watchList
       setWatchList((prevWatchList) => [...prevWatchList, item]);
-      alert("Add Successful!");
+      toast.success("Add Successful");
     }
   };
   console.log(watchList);
@@ -51,7 +55,7 @@ function App() {
       (item) => item.camera_id !== watchItem.camera_id
     );
     setWatchList(newList);
-    alert("Delete Successful");
+    toast.success("Delete Successful");
   };
 
   useEffect(() => {
@@ -77,6 +81,7 @@ function App() {
               <TrafficPage
                 trafficData={trafficData}
                 handlerAddWatchList={handlerAddWatchList}
+                ToastContainer={ToastContainer}
               />
             }
           />
@@ -86,6 +91,7 @@ function App() {
               <WatchListPage
                 watchList={watchList}
                 handlerDeleteWatchList={handlerDeleteWatchList}
+                ToastContainer={ToastContainer}
               />
             }
           />
