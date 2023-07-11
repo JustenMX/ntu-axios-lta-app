@@ -25,7 +25,7 @@ function App() {
   const getTrafficImages = async () => {
     try {
       const response = await govAPI.get(`/traffic-images`);
-      console.log(response.data);
+      // console.log(response.data);
       setTrafficData(response.data);
     } catch (error) {
       toast.error(error.message);

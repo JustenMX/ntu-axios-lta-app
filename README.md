@@ -2,6 +2,10 @@
 
 ## Module 2.8 Assignment
 
+### Brief
+
+React web application that provides real-time access to traffic camera images from various locations around Singapore. With a user-friendly interface, users can easily view the current traffic conditions and monitor specific areas of interest. The application leverages the latest data and updates from traffic cameras strategically placed across the city to provide accurate and up-to-date visuals.
+
 ### Axios
 
 Research and consume public APIs listed at [GovData](https://data.gov.sg/).
